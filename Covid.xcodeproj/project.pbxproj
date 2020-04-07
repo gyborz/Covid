@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E79F9F2F243C7F1F00CE4B4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F2E243C7F1F00CE4B4F /* AppDelegate.swift */; };
 		E79F9F31243C7F1F00CE4B4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F30243C7F1F00CE4B4F /* SceneDelegate.swift */; };
-		E79F9F33243C7F1F00CE4B4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F32243C7F1F00CE4B4F /* ViewController.swift */; };
-		E79F9F36243C7F1F00CE4B4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79F9F34243C7F1F00CE4B4F /* Main.storyboard */; };
 		E79F9F38243C7F2900CE4B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79F9F37243C7F2900CE4B4F /* Assets.xcassets */; };
 		E79F9F3B243C7F2900CE4B4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79F9F39243C7F2900CE4B4F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		E79F9F2B243C7F1F00CE4B4F /* Covid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79F9F2E243C7F1F00CE4B4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E79F9F30243C7F1F00CE4B4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E79F9F32243C7F1F00CE4B4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E79F9F35243C7F1F00CE4B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E79F9F37243C7F2900CE4B4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E79F9F3A243C7F2900CE4B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E79F9F3C243C7F2900CE4B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 			children = (
 				E79F9F2E243C7F1F00CE4B4F /* AppDelegate.swift */,
 				E79F9F30243C7F1F00CE4B4F /* SceneDelegate.swift */,
-				E79F9F32243C7F1F00CE4B4F /* ViewController.swift */,
-				E79F9F34243C7F1F00CE4B4F /* Main.storyboard */,
 				E79F9F37243C7F2900CE4B4F /* Assets.xcassets */,
 				E79F9F39243C7F2900CE4B4F /* LaunchScreen.storyboard */,
 				E79F9F3C243C7F2900CE4B4F /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				E79F9F3B243C7F2900CE4B4F /* LaunchScreen.storyboard in Resources */,
 				E79F9F38243C7F2900CE4B4F /* Assets.xcassets in Resources */,
-				E79F9F36243C7F1F00CE4B4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E79F9F33243C7F1F00CE4B4F /* ViewController.swift in Sources */,
 				E79F9F2F243C7F1F00CE4B4F /* AppDelegate.swift in Sources */,
 				E79F9F31243C7F1F00CE4B4F /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +139,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E79F9F34243C7F1F00CE4B4F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E79F9F35243C7F1F00CE4B4F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E79F9F39243C7F2900CE4B4F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +278,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gyorgyborz.Covid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gyorgyborz.Covid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
