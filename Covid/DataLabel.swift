@@ -1,5 +1,5 @@
 //
-//  StatTitleLabel.swift
+//  DataLabel.swift
 //  Covid
 //
 //  Created by Gyorgy Borz on 2020. 04. 07..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatTitleLabel: UILabel {
+class DataLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,23 +19,15 @@ class StatTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String) {
+    convenience init(color: UIColor) {
         self.init(frame: .zero)
-        self.text = title
-    }
-    
-    override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        super.drawText(in: rect.inset(by: insets))
+        self.text = "0"
+        self.textColor = color
     }
     
     private func configure() {
-        textColor = .label
-        numberOfLines = 0
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
         font = UIFont.preferredFont(forTextStyle: .body)
-        adjustsFontForContentSizeCategory = true
+        textAlignment = .center
     }
     
 }

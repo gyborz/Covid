@@ -16,6 +16,7 @@
 		E79F9F47243CA5C800CE4B4F /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F46243CA5C800CE4B4F /* CountryInfo.swift */; };
 		E79F9F49243CB5C000CE4B4F /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F48243CB5C000CE4B4F /* TitleLabel.swift */; };
 		E79F9F4B243CB76000CE4B4F /* StatTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F4A243CB76000CE4B4F /* StatTitleLabel.swift */; };
+		E79F9F4D243CBE3400CE4B4F /* DataLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F4C243CBE3400CE4B4F /* DataLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E79F9F46243CA5C800CE4B4F /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 		E79F9F48243CB5C000CE4B4F /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		E79F9F4A243CB76000CE4B4F /* StatTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTitleLabel.swift; sourceTree = "<group>"; };
+		E79F9F4C243CBE3400CE4B4F /* DataLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				E79F9F46243CA5C800CE4B4F /* CountryInfo.swift */,
 				E79F9F48243CB5C000CE4B4F /* TitleLabel.swift */,
 				E79F9F4A243CB76000CE4B4F /* StatTitleLabel.swift */,
+				E79F9F4C243CBE3400CE4B4F /* DataLabel.swift */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				E79F9F2F243C7F1F00CE4B4F /* AppDelegate.swift in Sources */,
 				E79F9F45243C9E6300CE4B4F /* Statistics.swift in Sources */,
 				E79F9F49243CB5C000CE4B4F /* TitleLabel.swift in Sources */,
+				E79F9F4D243CBE3400CE4B4F /* DataLabel.swift in Sources */,
 				E79F9F47243CA5C800CE4B4F /* CountryInfo.swift in Sources */,
 				E79F9F4B243CB76000CE4B4F /* StatTitleLabel.swift in Sources */,
 				E79F9F31243C7F1F00CE4B4F /* SceneDelegate.swift in Sources */,
