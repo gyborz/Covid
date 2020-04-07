@@ -21,7 +21,7 @@ class DataLabel: UILabel {
     
     convenience init(color: UIColor) {
         self.init(frame: .zero)
-        self.text = "0"
+        self.text = "..."
         self.textColor = color
     }
     
