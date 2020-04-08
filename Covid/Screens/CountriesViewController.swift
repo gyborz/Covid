@@ -23,6 +23,7 @@ class CountriesViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let indicator = UIActivityIndicatorView()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +35,7 @@ class CountriesViewController: UIViewController {
         configureDataSource()
     }
     
+    
     private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -42,6 +44,7 @@ class CountriesViewController: UIViewController {
         definesPresentationContext = true
     }
     
+    
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
@@ -49,6 +52,7 @@ class CountriesViewController: UIViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(CountryCell.self, forCellWithReuseIdentifier: CountryCell.reuseID)
     }
+    
     
     private func getCountriesStatistics() {
         showIndicator()
@@ -62,16 +66,17 @@ class CountriesViewController: UIViewController {
                     self.updateData(on: self.countriesStatistics)
                 }
             case .failure(let error):
-                let alert = UIAlertController(title: error.rawValue, message: nil, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(action)
                 DispatchQueue.main.async {
                     self.hideIndicator()
+                    let alert = UIAlertController(title: error.rawValue, message: nil, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(action)
                     self.present(alert, animated: true)
                 }
             }
         }
     }
+    
     
     private func configureDataSource() {
         dataSource = IngredientsDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, statistics) -> UICollectionViewCell? in
@@ -81,12 +86,14 @@ class CountriesViewController: UIViewController {
         })
     }
     
+    
     private func updateData(on countriesStats: [Statistics]) {
         var snapshot = IngredientsSnapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(countriesStats)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
+    
     
     private func showIndicator() {
         indicator.frame = view.bounds
@@ -95,10 +102,12 @@ class CountriesViewController: UIViewController {
         indicator.startAnimating()
     }
     
+    
     private func hideIndicator() {
         indicator.stopAnimating()
         indicator.removeFromSuperview()
     }
+    
 
 }
 

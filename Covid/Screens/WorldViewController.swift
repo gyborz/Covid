@@ -11,49 +11,23 @@ import UIKit
 class WorldViewController: UIViewController {
     
     private let titleLabel = TitleLabel(title: "World statistics", color: .systemPink)
-    
-    private let contentView = UIView()
-    
-    private let mainStackView = UIStackView()
-    private let titlesStackView = UIStackView()
-    private let dataStackView = UIStackView()
-    
-    private let casesLabel = StatTitleLabel(title: "Number of cases so far:")
-    private let todayCasesLabel = StatTitleLabel(title: "Number of cases today:")
-    private let deathsLabel = StatTitleLabel(title: "Number of deaths so far:")
-    private let todayDeathsLabel = StatTitleLabel(title: "Number of deaths today:")
-    private let recoveredLabel = StatTitleLabel(title: "Number of recovered patients:")
-    private let criticalLabel = StatTitleLabel(title: "Number of patients in critical state:")
-    private let testsLabel = StatTitleLabel(title: "Number of tests so far:")
-    private let affectedCountriesLabel = StatTitleLabel(title: "Number of affected countries:")
-    
-    private let casesDataLabel = DataLabel(color: .systemOrange)
-    private let todayCasesDataLabel = DataLabel(color: .systemOrange)
-    private let deathsDataLabel = DataLabel(color: .systemRed)
-    private let todayDeathsDataLabel = DataLabel(color: .systemRed)
-    private let recoveredDataLabel = DataLabel(color: .systemGreen)
-    private let criticalDataLabel = DataLabel(color: .systemOrange)
-    private let testsDataLabel = DataLabel(color: .systemBlue)
-    private let affectedCountriesDataLabel = DataLabel(color: .systemOrange)
-
+    private let containerView = UIView()
+    private let indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
         layoutUI()
-        configureStackViews()
         getStatistics()
     }
     
     
     private func layoutUI() {
         view.addSubview(titleLabel)
-        view.addSubview(contentView)
-        contentView.addSubview(mainStackView)
+        view.addSubview(containerView)
         
         let padding: CGFloat = 15
-        let innerPadding: CGFloat = 10
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
@@ -62,81 +36,35 @@ class WorldViewController: UIViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 80)
         ])
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .tertiarySystemGroupedBackground
-        contentView.layer.cornerRadius = 18
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = .tertiarySystemGroupedBackground
+        containerView.layer.cornerRadius = 18
         
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding),
-            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
-        ])
-        
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: innerPadding),
-            mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -innerPadding),
-            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -innerPadding)
-        ])
-    }
-    
-    
-    private func configureStackViews() {
-        mainStackView.axis = .horizontal
-        
-        titlesStackView.axis = .vertical
-        titlesStackView.distribution = .fillEqually
-        
-        dataStackView.axis = .vertical
-        dataStackView.distribution = .fillEqually
-        
-        titlesStackView.addArrangedSubview(casesLabel)
-        titlesStackView.addArrangedSubview(todayCasesLabel)
-        titlesStackView.addArrangedSubview(deathsLabel)
-        titlesStackView.addArrangedSubview(todayDeathsLabel)
-        titlesStackView.addArrangedSubview(recoveredLabel)
-        titlesStackView.addArrangedSubview(criticalLabel)
-        titlesStackView.addArrangedSubview(testsLabel)
-        titlesStackView.addArrangedSubview(affectedCountriesLabel)
-        
-        dataStackView.addArrangedSubview(casesDataLabel)
-        dataStackView.addArrangedSubview(todayCasesDataLabel)
-        dataStackView.addArrangedSubview(deathsDataLabel)
-        dataStackView.addArrangedSubview(todayDeathsDataLabel)
-        dataStackView.addArrangedSubview(recoveredDataLabel)
-        dataStackView.addArrangedSubview(criticalDataLabel)
-        dataStackView.addArrangedSubview(testsDataLabel)
-        dataStackView.addArrangedSubview(affectedCountriesDataLabel)
-        
-        mainStackView.addArrangedSubview(titlesStackView)
-        mainStackView.addArrangedSubview(dataStackView)
-        
-        titlesStackView.translatesAutoresizingMaskIntoConstraints = false
-        dataStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            titlesStackView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.7),
-            dataStackView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.3)
+            containerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
         ])
     }
     
     
     private func getStatistics() {
+        showIndicator()
         NetworkManager.shared.getWorlStatistics { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let statistics):
                 DispatchQueue.main.async {
-                    self.updateUI(with: statistics)
+                    self.hideIndicator()
+                    self.setupChildVC(with: statistics)
                 }
             case .failure(let error):
-                let alert = UIAlertController(title: error.rawValue, message: nil, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(action)
                 DispatchQueue.main.async {
+                    self.hideIndicator()
+                    let alert = UIAlertController(title: error.rawValue, message: nil, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(action)
                     self.present(alert, animated: true)
                 }
             }
@@ -144,15 +72,32 @@ class WorldViewController: UIViewController {
     }
     
     
-    private func updateUI(with statistics: Statistics) {
-        casesDataLabel.text = String(statistics.cases)
-        todayCasesDataLabel.text = String(statistics.todayCases)
-        deathsDataLabel.text = String(statistics.deaths)
-        todayDeathsDataLabel.text = String(statistics.todayDeaths)
-        recoveredDataLabel.text = String(statistics.recovered)
-        criticalDataLabel.text = String(statistics.critical)
-        testsDataLabel.text = String(statistics.tests)
-        affectedCountriesDataLabel.text = String(statistics.affectedCountries!)
+    private func setupChildVC(with statistics: Statistics) {
+        let childVC = StatisticsViewController(statistics: statistics)
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self)
+    }
+    
+    
+    private func showIndicator() {
+        containerView.addSubview(indicator)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.style = .large
+        NSLayoutConstraint.activate([
+            indicator.topAnchor.constraint(equalTo: containerView.topAnchor),
+            indicator.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            indicator.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            indicator.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
+        indicator.startAnimating()
+    }
+    
+    
+    private func hideIndicator() {
+        indicator.stopAnimating()
+        indicator.removeFromSuperview()
     }
     
 
