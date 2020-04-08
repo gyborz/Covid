@@ -13,7 +13,7 @@ class CountriesViewController: UIViewController {
     enum Section { case main }
     
     private var countriesStatistics: [Statistics] = []
-    private var filteredCountriesStats: [Statistics] = []
+    private var filteredCountriesStatistics: [Statistics] = []
     var collectionView: UICollectionView!
     
     private typealias IngredientsDataSource = UICollectionViewDiffableDataSource<Section, Statistics>
@@ -85,9 +85,6 @@ class CountriesViewController: UIViewController {
         var snapshot = IngredientsSnapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(countriesStats)
-//        DispatchQueue.main.async {
-//            self.dataSource.apply(snapshot, animatingDifferences: true)
-//        }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
@@ -114,7 +111,15 @@ extension CountriesViewController: UICollectionViewDelegate {
 extension CountriesViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        //
+        let searchBar = searchController.searchBar
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            filteredCountriesStatistics = countriesStatistics.filter { (statistics: Statistics) -> Bool in
+                return statistics.country!.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            filteredCountriesStatistics = countriesStatistics
+        }
+        updateData(on: filteredCountriesStatistics)
     }
     
 }
