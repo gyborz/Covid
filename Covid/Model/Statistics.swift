@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Statistics: Codable {
+struct Statistics: Codable, Hashable {
     let country: String?
     let countryInfo: CountryInfo?
     let cases: Int

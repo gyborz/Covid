@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct CountryInfo: Codable {
+struct CountryInfo: Codable, Hashable {
     let flag: String
 }

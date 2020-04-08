@@ -20,6 +20,9 @@
 		E79F9F51243CCE8700CE4B4F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F50243CCE8700CE4B4F /* NetworkManager.swift */; };
 		E79F9F55243CE3EA00CE4B4F /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F54243CE3EA00CE4B4F /* CountriesViewController.swift */; };
 		E79F9F57243CE42E00CE4B4F /* CovidTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F9F56243CE42E00CE4B4F /* CovidTabBarController.swift */; };
+		E7D02F81243DC380005E0369 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F80243DC380005E0369 /* CountryCell.swift */; };
+		E7D02F83243DC83C005E0369 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F82243DC83C005E0369 /* ImageService.swift */; };
+		E7D02F85243DCCC5005E0369 /* UICollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		E79F9F50243CCE8700CE4B4F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E79F9F54243CE3EA00CE4B4F /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		E79F9F56243CE42E00CE4B4F /* CovidTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTabBarController.swift; sourceTree = "<group>"; };
+		E7D02F80243DC380005E0369 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		E7D02F82243DC83C005E0369 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,9 @@
 				E79F9F4E243CCE3800CE4B4F /* Labels */,
 				E79F9F58243CE80200CE4B4F /* Managers */,
 				E79F9F5A243CE81B00CE4B4F /* TabBarController */,
+				E7D02F80243DC380005E0369 /* CountryCell.swift */,
+				E7D02F82243DC83C005E0369 /* ImageService.swift */,
+				E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -198,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D02F85243DCCC5005E0369 /* UICollectionViewHelper.swift in Sources */,
 				E79F9F51243CCE8700CE4B4F /* NetworkManager.swift in Sources */,
 				E79F9F43243C8C1A00CE4B4F /* WorldViewController.swift in Sources */,
 				E79F9F2F243C7F1F00CE4B4F /* AppDelegate.swift in Sources */,
@@ -206,6 +216,8 @@
 				E79F9F45243C9E6300CE4B4F /* Statistics.swift in Sources */,
 				E79F9F49243CB5C000CE4B4F /* TitleLabel.swift in Sources */,
 				E79F9F4D243CBE3400CE4B4F /* DataLabel.swift in Sources */,
+				E7D02F83243DC83C005E0369 /* ImageService.swift in Sources */,
+				E7D02F81243DC380005E0369 /* CountryCell.swift in Sources */,
 				E79F9F47243CA5C800CE4B4F /* CountryInfo.swift in Sources */,
 				E79F9F4B243CB76000CE4B4F /* StatTitleLabel.swift in Sources */,
 				E79F9F31243C7F1F00CE4B4F /* SceneDelegate.swift in Sources */,
