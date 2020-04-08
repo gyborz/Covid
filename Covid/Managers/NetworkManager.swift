@@ -89,4 +89,39 @@ final class NetworkManager {
         task.resume()
     }
     
+    func getCountryStatistics(for countryID: Int, completed: @escaping (Result<Statistics,CovidError>) -> Void) {
+        let endpoint = baseURL + "countries/\(countryID)"
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.errorHappened))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completed(.failure(.errorHappened))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.errorHappened))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.errorHappened))
+                return
+            }
+            
+            do {
+                let statistics = try JSONDecoder().decode(Statistics.self, from: data)
+                completed(.success(statistics))
+            } catch {
+                completed(.failure(.errorHappened))
+            }
+        }
+        
+        task.resume()
+    }
+    
 }

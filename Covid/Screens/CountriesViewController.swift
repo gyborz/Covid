@@ -113,7 +113,13 @@ class CountriesViewController: UIViewController {
 
 extension CountriesViewController: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let statistics = dataSource.itemIdentifier(for: indexPath) else { return }
+        let destVC = CountryViewController(statistics: statistics)
+        destVC.title = statistics.country!
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
+    }
     
 }
 

@@ -83,7 +83,6 @@ class StatisticsViewController: UIViewController {
         titlesStackView.addArrangedSubview(recoveredLabel)
         titlesStackView.addArrangedSubview(criticalLabel)
         titlesStackView.addArrangedSubview(testsLabel)
-        titlesStackView.addArrangedSubview(affectedCountriesLabel)
         
         dataStackView.addArrangedSubview(casesDataLabel)
         dataStackView.addArrangedSubview(todayCasesDataLabel)
@@ -92,10 +91,14 @@ class StatisticsViewController: UIViewController {
         dataStackView.addArrangedSubview(recoveredDataLabel)
         dataStackView.addArrangedSubview(criticalDataLabel)
         dataStackView.addArrangedSubview(testsDataLabel)
-        dataStackView.addArrangedSubview(affectedCountriesDataLabel)
         
         mainStackView.addArrangedSubview(titlesStackView)
         mainStackView.addArrangedSubview(dataStackView)
+        
+        if statistics.affectedCountries != nil {
+            titlesStackView.addArrangedSubview(affectedCountriesLabel)
+            dataStackView.addArrangedSubview(affectedCountriesDataLabel)
+        }
         
         titlesStackView.translatesAutoresizingMaskIntoConstraints = false
         dataStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +118,9 @@ class StatisticsViewController: UIViewController {
         recoveredDataLabel.text = String(statistics.recovered)
         criticalDataLabel.text = String(statistics.critical)
         testsDataLabel.text = String(statistics.tests)
-        affectedCountriesDataLabel.text = String(statistics.affectedCountries!)
+        if let affectedCountries = statistics.affectedCountries {
+            affectedCountriesDataLabel.text = String(affectedCountries)
+        }
     }
 
 }

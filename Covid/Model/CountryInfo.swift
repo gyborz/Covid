@@ -9,5 +9,6 @@
 import Foundation
 
 struct CountryInfo: Codable, Hashable {
+    let _id: Int?
     let flag: String
 }

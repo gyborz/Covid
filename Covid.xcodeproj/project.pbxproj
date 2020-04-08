@@ -24,6 +24,7 @@
 		E7D02F83243DC83C005E0369 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F82243DC83C005E0369 /* ImageService.swift */; };
 		E7D02F85243DCCC5005E0369 /* UICollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */; };
 		E7D02F8A243DDF30005E0369 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F89243DDF30005E0369 /* StatisticsViewController.swift */; };
+		E7D02F8D243DF50B005E0369 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D02F8C243DF50B005E0369 /* CountryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E7D02F82243DC83C005E0369 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewHelper.swift; sourceTree = "<group>"; };
 		E7D02F89243DDF30005E0369 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		E7D02F8C243DF50B005E0369 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,20 +80,17 @@
 		E79F9F2D243C7F1F00CE4B4F /* Covid */ = {
 			isa = PBXGroup;
 			children = (
-				E79F9F2E243C7F1F00CE4B4F /* AppDelegate.swift */,
-				E79F9F30243C7F1F00CE4B4F /* SceneDelegate.swift */,
-				E79F9F37243C7F2900CE4B4F /* Assets.xcassets */,
-				E79F9F39243C7F2900CE4B4F /* LaunchScreen.storyboard */,
-				E79F9F3C243C7F2900CE4B4F /* Info.plist */,
-				E79F9F59243CE81300CE4B4F /* Screens */,
 				E79F9F4F243CCE4700CE4B4F /* Model */,
+				E79F9F59243CE81300CE4B4F /* Screens */,
 				E79F9F4E243CCE3800CE4B4F /* Labels */,
-				E79F9F58243CE80200CE4B4F /* Managers */,
-				E79F9F5A243CE81B00CE4B4F /* TabBarController */,
 				E7D02F86243DDED3005E0369 /* Cells */,
+				E79F9F5A243CE81B00CE4B4F /* TabBarController */,
+				E79F9F58243CE80200CE4B4F /* Managers */,
 				E7D02F87243DDEE7005E0369 /* Services */,
 				E7D02F88243DDEF1005E0369 /* Utilities */,
-				E7D02F89243DDF30005E0369 /* StatisticsViewController.swift */,
+				E7D02F8B243DF4CF005E0369 /* ChildViewControllers */,
+				E7D02F8E243DFEA9005E0369 /* Supporting Files */,
+				E79F9F3C243C7F2900CE4B4F /* Info.plist */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 			children = (
 				E79F9F42243C8C1A00CE4B4F /* WorldViewController.swift */,
 				E79F9F54243CE3EA00CE4B4F /* CountriesViewController.swift */,
+				E7D02F8C243DF50B005E0369 /* CountryViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -162,6 +162,25 @@
 				E7D02F84243DCCC5005E0369 /* UICollectionViewHelper.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E7D02F8B243DF4CF005E0369 /* ChildViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7D02F89243DDF30005E0369 /* StatisticsViewController.swift */,
+			);
+			path = ChildViewControllers;
+			sourceTree = "<group>";
+		};
+		E7D02F8E243DFEA9005E0369 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E79F9F2E243C7F1F00CE4B4F /* AppDelegate.swift */,
+				E79F9F30243C7F1F00CE4B4F /* SceneDelegate.swift */,
+				E79F9F37243C7F2900CE4B4F /* Assets.xcassets */,
+				E79F9F39243C7F2900CE4B4F /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +262,7 @@
 				E7D02F8A243DDF30005E0369 /* StatisticsViewController.swift in Sources */,
 				E79F9F45243C9E6300CE4B4F /* Statistics.swift in Sources */,
 				E79F9F49243CB5C000CE4B4F /* TitleLabel.swift in Sources */,
+				E7D02F8D243DF50B005E0369 /* CountryViewController.swift in Sources */,
 				E79F9F4D243CBE3400CE4B4F /* DataLabel.swift in Sources */,
 				E7D02F83243DC83C005E0369 /* ImageService.swift in Sources */,
 				E7D02F81243DC380005E0369 /* CountryCell.swift in Sources */,
