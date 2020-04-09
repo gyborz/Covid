@@ -59,22 +59,17 @@ class CountryCell: UICollectionViewCell {
         countryLabel.minimumScaleFactor = 0.9
     }
     
-    func set(country: Statistics, for indexPath: IndexPath) {
+    func set(country: Statistics) {
         countryLabel.text = country.country
         
-        if let imageURL = country.countryInfo?.flag {
-            guard let url = URL(string: imageURL) else { return }
-            if imageTask == nil {
-                imageTask = ImageService.getImage(withURL: url) { (image, error) in
-                    if error != nil && error!._code != NSURLErrorCancelled {
-                        //self.flagImageView.image = UIImage(named: "error")
-                    } else {
-                        self.flagImageView.image = image
-                    }
+        guard let imageURL = country.countryInfo?.flag else { return }
+        guard let url = URL(string: imageURL) else { return }
+        if imageTask == nil {
+            imageTask = ImageService.getImage(withURL: url) { (image, error) in
+                if error == nil {
+                    self.flagImageView.image = image
                 }
             }
-        } else {
-            //self.flagImageView.image = UIImage(named: "error")
         }
     }
     

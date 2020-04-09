@@ -81,7 +81,7 @@ class CountriesViewController: UIViewController {
     private func configureDataSource() {
         dataSource = IngredientsDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, statistics) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CountryCell.reuseID, for: indexPath) as! CountryCell
-            cell.set(country: statistics, for: indexPath)
+            cell.set(country: statistics)
             return cell
         })
     }
