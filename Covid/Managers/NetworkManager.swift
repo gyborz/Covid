@@ -15,7 +15,7 @@ enum CovidError: String, Error {
 final class NetworkManager {
     
     static let shared = NetworkManager()
-    private let baseURL = "https://corona.lmao.ninja/"
+    private let baseURL = "https://corona.lmao.ninja/v2/"
     
     private init() {}
     
