@@ -111,16 +111,14 @@ class StatisticsViewController: UIViewController {
     
     
     private func updateUI(with statistics: Statistics) {
-        casesDataLabel.text = String(statistics.cases)
-        todayCasesDataLabel.text = String(statistics.todayCases)
-        deathsDataLabel.text = String(statistics.deaths)
-        todayDeathsDataLabel.text = String(statistics.todayDeaths)
-        recoveredDataLabel.text = String(statistics.recovered)
-        criticalDataLabel.text = String(statistics.critical)
-        testsDataLabel.text = String(statistics.tests)
-        if let affectedCountries = statistics.affectedCountries {
-            affectedCountriesDataLabel.text = String(affectedCountries)
-        }
+        casesDataLabel.text = statistics.cases != nil ? String(statistics.cases!) : "N/A"
+        todayCasesDataLabel.text = statistics.todayCases != nil ? String(statistics.todayCases!) : "N/A"
+        deathsDataLabel.text = statistics.deaths != nil ? String(statistics.deaths!) : "N/A"
+        todayDeathsDataLabel.text = statistics.todayDeaths != nil ? String(statistics.todayDeaths!) : "N/A"
+        recoveredDataLabel.text = statistics.recovered != nil ? String(statistics.recovered!) : "N/A"
+        criticalDataLabel.text = statistics.critical != nil ? String(statistics.critical!) : "N/A"
+        testsDataLabel.text = statistics.tests != nil ? String(statistics.tests!) : "N/A"
+        affectedCountriesDataLabel.text = statistics.affectedCountries != nil ? String(statistics.affectedCountries!) : "N/A"
     }
 
 }

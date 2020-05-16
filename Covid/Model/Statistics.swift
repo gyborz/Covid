@@ -11,12 +11,12 @@ import Foundation
 struct Statistics: Codable, Hashable {
     let country: String?
     let countryInfo: CountryInfo?
-    let cases: Int
-    let todayCases: Int
-    let deaths: Int
-    let todayDeaths: Int
-    let recovered: Int
-    let critical: Int
-    let tests: Int
+    let cases: Int?
+    let todayCases: Int?
+    let deaths: Int?
+    let todayDeaths: Int?
+    let recovered: Int?
+    let critical: Int?
+    let tests: Int?
     let affectedCountries: Int?
 }
